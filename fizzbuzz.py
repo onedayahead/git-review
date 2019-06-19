@@ -1,4 +1,5 @@
 # This is where you will write your awesome calculator.
+import atexit
 
 def calc_fizzbuzz(n):
     if n % 15 == 0:
@@ -21,5 +22,13 @@ def loop():
 
 
 if __name__ == '__main__':
+    def quit_gracefully():
+        print 'Bye'
+
+    atexit.register(quit_gracefully)
+
     while True:
-        loop()
+        try:
+            loop()
+        except EOFError:
+            break
