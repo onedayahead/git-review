@@ -15,9 +15,12 @@ def calc_fizzbuzz(n):
 
 
 def loop():
-    num = input('Enter a number: ')
-    print(calc_fizzbuzz(int(num)))
-
+    num = raw_input('Enter a number: ')
+    try:
+        n = int(num)
+        print(calc_fizzbuzz(n))
+    except ValueError:
+        pass
 
 if __name__ == '__main__':
     while True:
