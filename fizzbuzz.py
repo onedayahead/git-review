@@ -1,6 +1,9 @@
 # This is where you will write your awesome calculator.
 
 def calc_fizzbuzz(n):
+    if not isinstance(n, int):
+        raise ValueError('Must provide an integer to calc_fizzbuzz')
+
     if n % 15 == 0:
         return 'FizzBuzz'
     elif n % 5 == 0:
