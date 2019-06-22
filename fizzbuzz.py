@@ -1,4 +1,5 @@
 # This is where you will write your awesome calculator.
+import atexit
 
 def calc_fizzbuzz(n):
     if not isinstance(n, int):
@@ -23,5 +24,13 @@ def loop():
         pass
 
 if __name__ == '__main__':
+    def quit_gracefully():
+        print 'Bye'
+
+    atexit.register(quit_gracefully)
+
     while True:
-        loop()
+        try:
+            loop()
+        except EOFError:
+            break
